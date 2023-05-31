@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2022 ValorPay. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+    <type name="ValorPay\CardPay\Model\Ui\ConfigProvider">
+        <arguments>
+	    <argument name="methodCodes" xsi:type="array">
+	    	<item name="valorpay_gateway" xsi:type="const">ValorPay\CardPay\Model\Ui\ConfigProvider::CODE</item>
+	    </argument>
+        </arguments>
+    </type>
+    
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="ccform" xsi:type="object">ValorPay\CardPay\Model\Ui\ConfigProvider</item>
+                <item name="cc_card_config_provider" xsi:type="object">Magento\Payment\Model\CcConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Vault\Block\Customer\PaymentTokens">
+        <plugin name="valor_cards_available" type="ValorPay\CardPay\Plugin\Vault\VaultCards" sortOrder="10" />
+    </type>
+
+    <type name="Magento\Multishipping\Controller\Checkout\Overview">
+        <plugin name="valor_multishipping_terms_checked" type="ValorPay\CardPay\Plugin\Multishipping\Overview" sortOrder="11" />
+    </type>
+    
+</config>

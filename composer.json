@@ -1,0 +1,55 @@
+    {
+    "name": "valorpay/plugin-magento",
+    "description": "ValorpayTech Payment Gateway module for Magento",
+    "require": {
+        "php": ">=7.3",
+        "magento/module-sales": "*",
+        "magento/module-checkout": "*",
+        "magento/module-payment": "*"
+    },
+    "type": "magento2-module",
+    "version": "2.0.0",
+    "license": ["MIT"],
+    "authors": [
+	  {
+		  "name": "ValorPayTech",
+		  "email": "webmaster@valorpaytech.com",
+		  "homepage": "https://valorpaytech.com/"
+	  }
+	],
+    "keywords": [
+      "valor",
+      "valorpay",
+      "valorpaytech",
+      "ecomcharge",
+      "magento2_module",
+      "magento2_payment_module",
+      "payment_gateway",
+      "magento2_payment_gateway",
+      "payment_processing",
+      "magento2_payment_processing",
+      "e-commerce",
+      "visa",
+      "mastercard",
+      "american_express",
+      "discover",
+      "jcb",
+      "diners",
+      "debit_card",
+      "credit_card",
+      "authorize",
+      "capture",
+      "recurring",
+      "refund",
+      "void",
+      "3d-secure",
+      "fraud",
+      "chargeback"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "ValorPay\\CardPay\\": ""
+        }
+    }
+}
